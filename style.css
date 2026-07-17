@@ -3,7 +3,6 @@
     --bg-main: #f9f9f9;                /* Clean, modern light gray base */
     --bg-sidebar: #0a0a0a;             /* Pure Pitch Black */
     --sidebar-text-inactive: #e5e5e5;  /* Crisp off-white for highly legible inactive nav */
-    --sidebar-label: #777777;          /* Muted grey for category hierarchy */
     --sidebar-hover: #141414;          /* Soft carbon black hover */
     --text-dark: #0a0a0a;              /* Pure Black text */
     --text-muted: #555555;             /* Balanced grey for secondary text */
@@ -35,7 +34,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 /* Monospace placeholders for intentional engineering aesthetic */
-.placeholder-box, .chapter-number, .menu-label, .chapter-desc-placeholder {
+.placeholder-box, .chapter-number, .chapter-desc-placeholder, .stream-action {
     font-family: 'Space Mono', monospace;
 }
 
@@ -98,12 +97,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     gap: 24px;
 }
 
-@media (max-width: 768px) {
-    .stream-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 .portal-stream-card {
     background: #111111;
     border: 1px solid #222222;
@@ -136,7 +129,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 .stream-action {
-    font-family: 'Space Mono', monospace;
     font-size: 0.8rem;
     text-transform: uppercase;
     color: var(--accent-gold);
@@ -149,7 +141,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     width: 100vw;
 }
 
-/* --- POLISHED SIDEBAR DESIGN --- */
+/* --- SIDEBAR --- */
 .sidebar {
     width: 270px;
     background-color: var(--bg-sidebar);
@@ -157,6 +149,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     display: flex;
     flex-direction: column;
     border-right: 1px solid var(--sidebar-border);
+    flex-shrink: 0;
 }
 
 .sidebar-header {
@@ -167,7 +160,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     border-bottom: 1px solid var(--sidebar-border);
 }
 
-/* Clean logo container */
 .logo-container {
     width: 48px;
     height: 48px;
@@ -175,21 +167,17 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: transparent;
-    border: none;
-    padding: 0;
 }
 
 .home-icon-btn {
     background: transparent;
-    border: 1px solid var(--accent-gold); /* Gold border instead of grey */
-    color: var(--accent-gold);           /* Gold text instead of grey */
+    border: 1px solid var(--accent-gold); 
+    color: var(--accent-gold);           
     padding: 6px 14px;
     font-size: 0.75rem;
     font-weight: 700;
     border-radius: var(--radius);
     cursor: pointer;
-    font-family: 'Space Mono', monospace;
     transition: all 0.15s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -206,17 +194,10 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     padding: 24px 16px;
 }
 
-.menu-label {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--sidebar-label); /* Balanced grey label for clean hierarchy */
-    margin: 28px 0 12px 12px;
-    font-weight: 700;
-}
-
-.menu-label:first-of-type {
-    margin-top: 8px;
+.sidebar-divider {
+    height: 1px;
+    background-color: var(--sidebar-border);
+    margin: 16px 12px 20px 12px;
 }
 
 .nav-item {
@@ -227,19 +208,19 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     padding: 12px 14px;
     background: transparent;
     border: 1px solid transparent;
-    color: var(--sidebar-text-inactive); /* Legible off-white text */
+    color: var(--sidebar-text-inactive); 
     text-align: left;
     font-size: 0.85rem;
     border-radius: var(--radius);
     cursor: pointer;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-weight: 500;
     transition: background-color 0.1s ease, color 0.1s ease;
 }
 
 .nav-item i {
     width: 16px;
-    color: var(--accent-gold); /* Icons are gold to pop against the dark sidebar */
+    color: var(--accent-gold); 
     transition: color 0.1s ease;
 }
 
@@ -249,21 +230,21 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 .nav-item:hover i {
-    color: #ffffff; /* Turns white on hover for a crisp state change */
+    color: #ffffff; 
 }
 
 .nav-item.active {
-    background-color: var(--accent-gold); /* Solid brand gold active card */
+    background-color: var(--accent-gold); 
     border: 1px solid var(--accent-gold);
-    color: var(--bg-sidebar);            /* High contrast dark text inside active item */
+    color: var(--bg-sidebar);            
     font-weight: 700;
 }
 
 .nav-item.active i {
-    color: var(--bg-sidebar);             /* Icons inside active item match dark text */
+    color: var(--bg-sidebar);             
 }
 
-/* --- STREAM SELECTOR HEADER --- */
+/* --- WORKSPACE LAYOUT & HEADERS --- */
 .main-content {
     flex: 1;
     display: flex;
@@ -278,11 +259,18 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     display: flex;
     align-items: center;
     padding: 0 40px;
+    flex-shrink: 0;
 }
 
 .stream-selector {
     display: flex;
     gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none; /* Hide scrollbar for clean UI */
+}
+
+.stream-selector::-webkit-scrollbar {
+    display: none;
 }
 
 .stream-btn {
@@ -295,6 +283,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.15s ease;
+    white-space: nowrap;
 }
 
 .stream-btn:hover {
@@ -308,7 +297,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     border-color: var(--bg-sidebar);
 }
 
-/* --- VIEWS --- */
 .content-body {
     flex: 1;
     overflow-y: auto;
@@ -323,7 +311,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     display: block;
 }
 
-/* --- CARDS & BLOCKS --- */
+/* --- CARDS & PANELS --- */
 .welcome-card {
     background-color: var(--bg-sidebar);
     color: #ffffff;
@@ -354,12 +342,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     gap: 32px;
 }
 
-@media (max-width: 1024px) {
-    .grid-layout {
-        grid-template-columns: 1fr;
-    }
-}
-
 .card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -368,7 +350,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     margin-bottom: 24px;
 }
 
-/* --- DUAL-TONE BLACK & GOLD HEADER BOX --- */
 .card-header {
     display: flex;
     align-items: center;
@@ -389,7 +370,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     color: var(--accent-gold); 
 }
 
-/* --- CHAPTER TITLE SECTION --- */
 .chapter-header-card {
     background-color: var(--bg-sidebar);
     color: #ffffff;
@@ -423,7 +403,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     font-style: italic;
 }
 
-/* --- PLACEHOLDERS --- */
 .placeholder-box {
     background-color: #ffffff;
     border: 1px dashed var(--border-color);
@@ -433,4 +412,119 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     font-style: italic;
     font-size: 0.85rem;
     text-align: center;
+}
+
+/* ==========================================================================
+   ⚡ MOBILE & TABLET RESPONSIVE QUERIES
+   ========================================================================== */
+
+/* Tablet & Smaller Desktop Reflow */
+@media (max-width: 1024px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* Smartphone & Small Tablet Form-Factors */
+@media (max-width: 768px) {
+    .portal-title {
+        font-size: 1.8rem;
+    }
+
+    .portal-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+    }
+
+    .stream-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .portal-stream-card {
+        padding: 24px 16px;
+    }
+
+    /* Convert Application View from split-pane to fluid vertical layout stack */
+    .app-container {
+        flex-direction: column;
+        overflow-y: auto;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--sidebar-border);
+    }
+
+    .sidebar-header {
+        padding: 16px;
+    }
+
+    .nav-menu {
+        padding: 12px 16px;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+        align-items: center;
+        scrollbar-width: none;
+    }
+
+    .nav-menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar-divider {
+        display: none; /* Strip dividers for flat continuous track menu rows */
+    }
+
+    .menu-section-main {
+        display: flex;
+    }
+
+    .chapters-list {
+        display: flex;
+        gap: 8px;
+    }
+
+    .nav-item {
+        margin-bottom: 0;
+        white-space: nowrap;
+        width: auto;
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+
+    .nav-item.active {
+        border-left: 1px solid var(--accent-gold); /* Refold indicators layout flat */
+        border-top: 2px solid var(--accent-gold);
+    }
+
+    .main-content {
+        height: auto;
+        overflow: visible;
+    }
+
+    .content-header {
+        padding: 0 16px;
+        height: 60px;
+    }
+
+    .content-body {
+        padding: 20px 16px;
+    }
+
+    .welcome-card, .chapter-header-card {
+        padding: 24px 16px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
 }

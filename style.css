@@ -26,7 +26,7 @@ body {
     color: var(--text-dark);
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     height: 100vh;
-    overflow: hidden; /* Kept for fixed desktop dashboard display panels */
+    overflow: hidden; /* Maintained for fixed desktop layout framework */
 }
 
 h1, h2, h3, h4, .nav-item, .stream-btn {
@@ -143,6 +143,10 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     flex-direction: column;
     border-right: 1px solid var(--sidebar-border);
     flex-shrink: 0;
+    
+    /* Desktop constraint resolution: forces the background element all the way down */
+    height: 100%;
+    min-height: 100vh;
 }
 
 .sidebar-header {
@@ -408,7 +412,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 /* ==========================================================================
-   ⚡ MOBILE, PORTAL, & TABLET RESPONSIVE QUERIES
+   ⚡ RESPONSIVE QUERIES & MOBILE UNFREEZERS
    ========================================================================== */
 
 @media (max-width: 1024px) {
@@ -422,21 +426,21 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     /* --- SYSTEM GLOBAL RESPONSIVE REMEDIATION --- */
     body {
         height: auto;
-        overflow: auto; /* UNLOCKS VIEWPORT SCROLL ENGINE FOR SMARTPHONES */
+        overflow: auto; /* Unlocks native mobile browser scroll mechanics */
     }
 
     /* --- PORTAL LANDING PAGE MOBILE STYLING (FIXED SCROLL CORES) --- */
     .portal-container {
-        position: relative;    /* Changes from fixed to allow standard document scrolling */
-        height: auto;          /* Overrides the 100vh restriction */
-        min-height: 100vh;     /* Ensures background covers full phone screen */
+        position: relative;    /* Breaks fixed window lock */
+        height: auto;          
+        min-height: 100vh;     
         width: 100vw;
-        padding: 48px 16px;    /* Adds space at top and bottom for scrolling room */
+        padding: 48px 16px;    
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start; /* Aligns content to top so it builds downwards naturally */
-        overflow-y: visible;   /* Hands total scrolling authority back to the mobile browser */
+        justify-content: flex-start; 
+        overflow-y: visible;   
     }
 
     .portal-card {
@@ -483,6 +487,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--sidebar-border);
+        min-height: auto; /* Restricts sidebar extension on phone views */
     }
 
     .sidebar-header {

@@ -26,7 +26,7 @@ body {
     color: var(--text-dark);
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     height: 100vh;
-    overflow: hidden; /* Maintained for fixed desktop dashboard display panels */
+    overflow: hidden; /* Kept for fixed desktop dashboard display panels */
 }
 
 h1, h2, h3, h4, .nav-item, .stream-btn {
@@ -408,7 +408,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 /* ==========================================================================
-   ⚡ MOBILE & TABLET STYLING CORE REFACTOR
+   ⚡ MOBILE, PORTAL, & TABLET RESPONSIVE QUERIES
    ========================================================================== */
 
 @media (max-width: 1024px) {
@@ -419,24 +419,29 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 @media (max-width: 768px) {
-    /* Unlocking view engine boundaries on small viewports */
+    /* --- SYSTEM GLOBAL RESPONSIVE REMEDIATION --- */
     body {
         height: auto;
-        overflow: auto; 
+        overflow: auto; /* UNLOCKS VIEWPORT SCROLL ENGINE FOR SMARTPHONES */
     }
 
-    /* Portal Landing view vertical normalization */
+    /* --- PORTAL LANDING PAGE MOBILE STYLING (FIXED SCROLL CORES) --- */
     .portal-container {
-        padding: 48px 16px;
-        height: auto;          
-        min-height: 100vh;     
-        position: relative; 
+        position: relative;    /* Changes from fixed to allow standard document scrolling */
+        height: auto;          /* Overrides the 100vh restriction */
+        min-height: 100vh;     /* Ensures background covers full phone screen */
+        width: 100vw;
+        padding: 48px 16px;    /* Adds space at top and bottom for scrolling room */
         display: flex;
-        overflow-y: visible;   
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Aligns content to top so it builds downwards naturally */
+        overflow-y: visible;   /* Hands total scrolling authority back to the mobile browser */
     }
 
     .portal-card {
         padding: 0;
+        margin: 0 auto;
     }
 
     .portal-logo {
@@ -454,16 +459,19 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         margin-bottom: 36px;
     }
 
+    /* Stacks stream selection options vertically on smartphones */
     .stream-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+        width: 100%;
     }
 
     .portal-stream-card {
         padding: 28px 16px;
+        width: 100%;
     }
 
-    /* Core Dashboard workspace orientation shift */
+    /* --- APPLICATION APP WORKSPACE MOBILE OVERRIDES --- */
     .app-container {
         flex-direction: column;
         overflow-y: visible;

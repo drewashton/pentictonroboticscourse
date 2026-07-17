@@ -29,7 +29,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -45,17 +44,23 @@
             
             <div class="stream-grid">
                 <button class="portal-stream-card" data-select-stream="build">
-                    <div class="stream-icon"><i class="fa-solid fa-hammer"></i></div>
+                    <div class="stream-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:32px; height:32px; fill:currentColor;"><path d="M495.6 116c11.4 11.4 16.4 27.6 13.5 43.6l-13.3 73.1c-3 16.5-14.7 30-31 35.7L316.5 318.1l-61 61c-4.4 4.4-10.4 7-16.6 7H176c-13.3 0-24-10.7-24-24V299.1c0-6.2 2.5-12.2 7-16.6l61-61L339.7 73.2c5.7-16.3 19.3-28 35.7-31l73.1-13.3c16-2.9 32.2 2.1 43.6 13.5l3.5 3.5zm-143 51.5L245.9 274.2c-2.4 2.4-3.9 5.7-3.9 9.3v14.6c0 3.3 1.3 6.5 3.7 8.8l10.3 10.3c2.3 2.3 5.5 3.7 8.8 3.7h14.6c3.5 0 6.8-1.4 9.3-3.9L395.4 210.4l-42.8-42.8zM224 416c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V384H64c-17.7 0-32-14.3-32-32V288c0-17.7 14.3-32 32-32H96V224c0-17.7 14.3-32 32-32h32V128c0-17.7 14.3-32 32-32H256c17.7 0 32 14.3 32 32v64l-64 64V224H160v64H128v32H96v32H64v32h32v32h32v32h32v32h32v32z"/></svg>
+                    </div>
                     <h3>Build Stream</h3>
                     <span class="stream-action">Launch Stream &rarr;</span>
                 </button>
                 <button class="portal-stream-card" data-select-stream="programming">
-                    <div class="stream-icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="stream-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="width:32px; height:32px; fill:currentColor;"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.3 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.3-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+                    </div>
                     <h3>Programming Stream</h3>
                     <span class="stream-action">Launch Stream &rarr;</span>
                 </button>
                 <button class="portal-stream-card" data-select-stream="business">
-                    <div class="stream-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="stream-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:32px; height:32px; fill:currentColor;"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM64 160H448V288H365.3c-14.1-13.4-33.1-21.3-54-21.3H200.7c-20.9 0-39.9 8-54 21.3H64V160zM302.7 320c0 9.6-7.8 17.3-17.3 17.3H226.7c-9.6 0-17.3-7.8-17.3-17.3V301.3c0-2.4 1.9-4.3 4.3-4.3h71.7c2.4 0 4.3 1.9 4.3 4.3V320z"/></svg>
+                    </div>
                     <h3>Business Stream</h3>
                     <span class="stream-action">Launch Stream &rarr;</span>
                 </button>
@@ -72,14 +77,17 @@
                     <img src="pr_logo2x.PNG" alt="Penticton Robotics Logo" class="brand-logo-img">
                 </div>
                 <button class="home-icon-btn" id="btn-back-home" title="Return to Main Menu">
-                    <i class="fa-solid fa-rotate-left"></i> Menu
+                    <!-- Inline Reset Arrow SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:11px; height:11px; fill:currentColor; margin-right:4px; vertical-align:middle;"><path d="M48.5 224H40c-13.3 0-24-10.7-24-24V72c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2L98.6 96.6C152.4 42.2 227.1 16 304 16c147.3 0 269.8 107.4 292.3 251c2.1 12.9-6.6 24.8-19.5 27s-24.8-6.6-27-19.5C531.8 147.4 428.1 64 304 64c-64.6 0-127.3 22-172.5 61.5L173 167c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8H48.5z"/></svg> Menu
                 </button>
             </div>
             
             <nav class="nav-menu">
                 <div class="menu-section-main">
                     <button class="nav-item active" id="btn-dashboard">
-                        <i class="fa-solid fa-house"></i> Syllabus
+                        <!-- Inline House SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-icon"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32v143.1c0 44.2-35.8 80-80 80H144c-44.2 0-80-35.8-80-80V287.6H32.2c-17.4 0-32.1-14.2-32.1-32.1c0-9 3.6-17.7 10-24L230.4 14.3C245.5 1.3 268.4-1 288 1.2c19.5-2.2 42.5 0.1 57.6 13.1l220.2 217.1c6.4 6.4 10 15.1 10 24.1zM288 114.6L112 288v144c0 8.8 7.2 16 16 16h80V320c0-17.7 14.3-32 32-32h96c17.7 0 32 14.3 32 32v128h80c8.8 0 16-7.2 16-16V288L288 114.6z"/></svg>
+                        <span>Syllabus</span>
                     </button>
                 </div>
                 
@@ -109,7 +117,8 @@
                     <div class="grid-layout">
                         <div class="card">
                             <div class="card-header">
-                                <i class="fa-solid fa-graduation-cap"></i>
+                                <!-- Inline Graduation Cap SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-icon"><path d="M320 32c-16.2 0-31 6.1-42.3 16.1L32 232c-12.3 10.1-16.7 27.2-10.7 42s21.7 24 37.7 24h35.5l14.7 132.2c2.4 21.3 20.3 37.8 41.8 37.8h338c21.5 0 39.4-16.5 41.8-37.8L546.5 298H581c16 0 31.7-9.2 37.7-24s1.6-31.9-10.7-42L362.3 48.1C351 38.1 336.2 32 320 32zm0 64l176 144H144L320 96zm-143.5 238h287l-12.2 110H188.7l-12.2-110z"/></svg>
                                 <span>Learning Objectives</span>
                             </div>
                             <div id="home-objectives-box" class="placeholder-box">
@@ -119,7 +128,8 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <i class="fa-solid fa-calendar-days"></i>
+                                <!-- Inline Calendar SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-icon"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16zm-256 96v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
                                 <span>Recommended Schedule</span>
                             </div>
                             <div class="placeholder-box">
@@ -140,7 +150,8 @@
                     <div class="grid-layout">
                         <div class="card main-card">
                             <div class="card-header">
-                                <i class="fa-solid fa-book-open"></i>
+                                <!-- Inline Book Open SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-icon"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-6.7-4.2-12.6-10.5-14.8C219.8 49.5 175 48 128 48c-40.3 0-77.9 10.7-108.3 29.3c-7.3 4.5-11.7 12.4-11.7 21V432c0 17.1 18.2 27.9 33.6 20c27.1-13.9 61.2-24 96.4-24c43 0 83.3 11.2 111.6 27.5zM326.4 471.5c28.3-16.3 68.6-27.5 111.6-27.5c35.2 0 69.3 10.1 96.4 24c15.4 7.9 33.6-2.9 33.6-20V103.3c0-8.6-4.4-16.5-11.7-21C525.9 63.7 488.3 53 448 53c-47 0-91.8 1.5-133.5 15.8c-6.3 2.2-10.5 8.1-10.5 14.8V456c0 11.4 11.6 19.3 22.4 15.5z"/></svg>
                                 <span>Topics & Readings</span>
                             </div>
                             <div class="placeholder-box">
@@ -151,7 +162,8 @@
                         <div class="side-column">
                             <div class="card">
                                 <div class="card-header">
-                                    <i class="fa-solid fa-clipboard-list"></i>
+                                    <!-- Inline Clipboard List SVG -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-icon"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM112 192H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 96H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 96H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
                                     <span>Assignments</span>
                                 </div>
                                 <div class="placeholder-box">
@@ -161,7 +173,8 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <!-- Inline File PDF SVG -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-icon"><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V299.6c-41.7-15.2-87.1-15.3-129 0c-51.4 18.8-93.7 56.5-115.3 105H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM192 384c0-35.3 28.7-64 64-64s64 28.7 64 64v32c0 35.3-28.7 64-64 64s-64-28.7-64-64V384z"/></svg>
                                     <span>Resources</span>
                                 </div>
                                 <div class="placeholder-box">

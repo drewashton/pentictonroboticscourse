@@ -123,17 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
         
         homeObjectivesBox.innerHTML = `<p>[Learning Objectives Placeholder]</p>`;
 
-        // Populate Left-hand Units list with High-Performance Inline SVG Folders
+        // Populate Left-hand Units list
         chaptersNav.innerHTML = "";
         stream.chapters.forEach((chapter, index) => {
             const button = document.createElement("button");
             button.className = "nav-item";
-            button.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:14px; height:14px; fill:currentColor; display:inline-block; flex-shrink:0; margin-right:4px; vertical-align:middle;">
-                    <path d="M64 48C28.7 48 0 76.7 0 112V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176c0-35.3-28.7-64-64-64H259.3L214 66.7C204.6 57.3 191.9 52 178.7 52H64z"/>
-                </svg>
-                <span>${chapter.unit}: ${chapter.title}</span>
-            `;
+            button.innerHTML = `<i class="fa-solid fa-folder"></i> ${chapter.unit}: ${chapter.title}`;
             button.addEventListener("click", () => showChapter(index));
             chaptersNav.appendChild(button);
         });

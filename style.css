@@ -26,7 +26,7 @@ body {
     color: var(--text-dark);
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     height: 100vh;
-    overflow: hidden; /* Maintained for fixed desktop layout framework */
+    overflow: hidden; /* Maintained for fixed desktop dashboard display panels */
 }
 
 h1, h2, h3, h4, .nav-item, .stream-btn {
@@ -53,6 +53,12 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     left: 0;
     z-index: 1000;
     overflow-y: auto; 
+    
+    /* Updated Background Image Asset */
+    background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('robotphoto.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .portal-card {
@@ -81,14 +87,16 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     letter-spacing: -0.5px;
     color: #ffffff;
     margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .portal-subtitle {
     font-size: 1.05rem;
-    color: #8e8e8e;
+    color: #e5e5e5;
     line-height: 1.6;
     max-width: 750px;
     margin: 0 auto 48px auto;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .stream-grid {
@@ -98,7 +106,9 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 .portal-stream-card {
-    background: #111111;
+    background: rgba(15, 15, 15, 0.75); 
+    backdrop-filter: blur(4px);          
+    -webkit-backdrop-filter: blur(4px);
     border: 1px solid #222222;
     padding: 32px 24px;
     border-radius: var(--radius);
@@ -114,7 +124,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 .portal-stream-card:hover {
     border-color: var(--accent-gold);
     transform: translateY(-2px);
-    background: #161616;
+    background: rgba(20, 20, 20, 0.9);
 }
 
 .stream-icon {
@@ -143,8 +153,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     flex-direction: column;
     border-right: 1px solid var(--sidebar-border);
     flex-shrink: 0;
-    
-    /* Desktop constraint resolution: forces the background element all the way down */
     height: 100%;
     min-height: 100vh;
 }
@@ -423,15 +431,13 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 @media (max-width: 768px) {
-    /* --- SYSTEM GLOBAL RESPONSIVE REMEDIATION --- */
     body {
         height: auto;
-        overflow: auto; /* Unlocks native mobile browser scroll mechanics */
+        overflow: auto; 
     }
 
-    /* --- PORTAL LANDING PAGE MOBILE STYLING (FIXED SCROLL CORES) --- */
     .portal-container {
-        position: relative;    /* Breaks fixed window lock */
+        position: relative;    
         height: auto;          
         min-height: 100vh;     
         width: 100vw;
@@ -441,6 +447,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         align-items: center;
         justify-content: flex-start; 
         overflow-y: visible;   
+        background-attachment: scroll; 
     }
 
     .portal-card {
@@ -463,7 +470,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         margin-bottom: 36px;
     }
 
-    /* Stacks stream selection options vertically on smartphones */
     .stream-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -475,7 +481,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         width: 100%;
     }
 
-    /* --- APPLICATION APP WORKSPACE MOBILE OVERRIDES --- */
     .app-container {
         flex-direction: column;
         overflow-y: visible;
@@ -487,7 +492,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--sidebar-border);
-        min-height: auto; /* Restricts sidebar extension on phone views */
+        min-height: auto; 
     }
 
     .sidebar-header {

@@ -1,16 +1,16 @@
 /* Tight, Consolidated Color Palette */
 :root {
-    --bg-main: #f9f9f9;                /* Clean, modern light gray base */
-    --bg-sidebar: #0a0a0a;             /* Pure Pitch Black */
-    --sidebar-text-inactive: #e5e5e5;  /* Crisp off-white for highly legible inactive nav */
-    --sidebar-hover: #141414;          /* Soft carbon black hover */
-    --text-dark: #0a0a0a;              /* Pure Black text */
-    --text-muted: #555555;             /* Balanced grey for secondary text */
-    --accent-gold: #f3b318;            /* Brand gold */
-    --border-color: #e5e5e5;           /* Clean separation line grey */
-    --sidebar-border: #1a1a1a;         /* Divider line inside sidebar */
-    --card-bg: #ffffff;                /* Pure White */
-    --radius: 4px;                     /* Geometric engineering-style borders */
+    --bg-main: #f9f9f9;                
+    --bg-sidebar: #0a0a0a;             
+    --sidebar-text-inactive: #e5e5e5;  
+    --sidebar-hover: #141414;          
+    --text-dark: #0a0a0a;              
+    --text-muted: #555555;             
+    --accent-gold: #f3b318;            
+    --border-color: #e5e5e5;           
+    --sidebar-border: #1a1a1a;         
+    --card-bg: #ffffff;                
+    --radius: 4px;                     
 }
 
 /* Base Typographic Overrides */
@@ -33,7 +33,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     font-weight: 700;
 }
 
-/* Monospace placeholders for intentional engineering aesthetic */
 .placeholder-box, .chapter-number, .chapter-desc-placeholder, .stream-action {
     font-family: 'Space Mono', monospace;
 }
@@ -141,7 +140,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     width: 100vw;
 }
 
-/* --- SIDEBAR --- */
 .sidebar {
     width: 270px;
     background-color: var(--bg-sidebar);
@@ -244,7 +242,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     color: var(--bg-sidebar);             
 }
 
-/* --- WORKSPACE LAYOUT & HEADERS --- */
 .main-content {
     flex: 1;
     display: flex;
@@ -266,7 +263,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     display: flex;
     gap: 12px;
     overflow-x: auto;
-    scrollbar-width: none; /* Hide scrollbar for clean UI */
+    scrollbar-width: none; 
 }
 
 .stream-selector::-webkit-scrollbar {
@@ -311,7 +308,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     display: block;
 }
 
-/* --- CARDS & PANELS --- */
+/* --- CARDS & BLOCKS --- */
 .welcome-card {
     background-color: var(--bg-sidebar);
     color: #ffffff;
@@ -415,10 +412,9 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 /* ==========================================================================
-   ⚡ MOBILE & TABLET RESPONSIVE QUERIES
+   ⚡ MOBILE, PORTAL, & TABLET RESPONSIVE QUERIES
    ========================================================================== */
 
-/* Tablet & Smaller Desktop Reflow */
 @media (max-width: 1024px) {
     .grid-layout {
         grid-template-columns: 1fr;
@@ -426,8 +422,13 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     }
 }
 
-/* Smartphone & Small Tablet Form-Factors */
 @media (max-width: 768px) {
+    /* Portal/Landing Page Mobile Optimization */
+    .portal-container {
+        padding: 32px 16px;
+        align-items: flex-start; /* Better scroll starting point on small screens */
+    }
+
     .portal-title {
         font-size: 1.8rem;
     }
@@ -437,6 +438,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         margin-bottom: 32px;
     }
 
+    /* Stack Stream Options vertically on mobile layouts */
     .stream-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -446,7 +448,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         padding: 24px 16px;
     }
 
-    /* Convert Application View from split-pane to fluid vertical layout stack */
+    /* Main Workspace App Shell Mobile Optimization */
     .app-container {
         flex-direction: column;
         overflow-y: auto;
@@ -479,11 +481,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     }
 
     .sidebar-divider {
-        display: none; /* Strip dividers for flat continuous track menu rows */
-    }
-
-    .menu-section-main {
-        display: flex;
+        display: none; 
     }
 
     .chapters-list {
@@ -500,7 +498,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     }
 
     .nav-item.active {
-        border-left: 1px solid var(--accent-gold); /* Refold indicators layout flat */
+        border-left: 1px solid var(--accent-gold); 
         border-top: 2px solid var(--accent-gold);
     }
 

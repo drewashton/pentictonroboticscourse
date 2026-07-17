@@ -46,12 +46,12 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 40px 24px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    overflow-y: auto;
+    overflow-y: auto; /* Allows internal container scrolling if content overflows */
 }
 
 .portal-card {
@@ -423,10 +423,23 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 @media (max-width: 768px) {
-    /* Portal/Landing Page Mobile Optimization */
+    /* --- CRITICAL MOBILE FIX FOR PORTAL/LANDING PAGE --- */
     .portal-container {
         padding: 32px 16px;
-        align-items: flex-start; /* Better scroll starting point on small screens */
+        height: auto;          /* Overrides 100vh restriction */
+        min-height: 100vh;     /* Ensures background covers phone screen */
+        display: block;        /* Changes flex layouts to natural document flow block stack */
+        overflow-y: visible;   /* Defers scrolling execution directly to parent window container */
+    }
+
+    .portal-card {
+        padding-top: 16px;
+    }
+
+    .portal-logo {
+        width: 90px;           /* Scales down slightly on small phone screens so it always fits */
+        height: 90px;
+        margin-bottom: 24px;
     }
 
     .portal-title {
@@ -438,7 +451,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         margin-bottom: 32px;
     }
 
-    /* Stack Stream Options vertically on mobile layouts */
+    /* Stacks stream selection options vertically on smartphones */
     .stream-grid {
         grid-template-columns: 1fr;
         gap: 16px;

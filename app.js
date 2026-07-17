@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Dashboard Menu Button
+    // Syllabus Menu Button
     btnDashboard.addEventListener("click", () => {
         showDashboard();
     });

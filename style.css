@@ -1,0 +1,436 @@
+/* Tight, Consolidated Color Palette */
+:root {
+    --bg-main: #f9f9f9;                /* Clean, modern light gray base */
+    --bg-sidebar: #0a0a0a;             /* Pure Pitch Black */
+    --sidebar-text-inactive: #e5e5e5;  /* Crisp off-white for highly legible inactive nav */
+    --sidebar-label: #777777;          /* Muted grey for category hierarchy */
+    --sidebar-hover: #141414;          /* Soft carbon black hover */
+    --text-dark: #0a0a0a;              /* Pure Black text */
+    --text-muted: #555555;             /* Balanced grey for secondary text */
+    --accent-gold: #f3b318;            /* Brand gold */
+    --border-color: #e5e5e5;           /* Clean separation line grey */
+    --sidebar-border: #1a1a1a;         /* Divider line inside sidebar */
+    --card-bg: #ffffff;                /* Pure White */
+    --radius: 4px;                     /* Geometric engineering-style borders */
+}
+
+/* Base Typographic Overrides */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, .nav-item, .stream-btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
+
+/* Monospace placeholders for intentional engineering aesthetic */
+.placeholder-box, .chapter-number, .menu-label, .chapter-desc-placeholder {
+    font-family: 'Space Mono', monospace;
+}
+
+/* --- PORTAL LANDING PAGE --- */
+.portal-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-sidebar);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.portal-card {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+.portal-logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 32px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.portal-title {
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.portal-subtitle {
+    font-size: 1.05rem;
+    color: #8e8e8e;
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 0 auto 48px auto;
+}
+
+.stream-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .stream-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.portal-stream-card {
+    background: #111111;
+    border: 1px solid #222222;
+    padding: 32px 24px;
+    border-radius: var(--radius);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portal-stream-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+    background: #161616;
+}
+
+.stream-icon {
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+}
+
+.portal-stream-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+}
+
+.stream-action {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+}
+
+/* --- MAIN INTERFACE STRUCTURE --- */
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* --- POLISHED SIDEBAR DESIGN --- */
+.sidebar {
+    width: 270px;
+    background-color: var(--bg-sidebar);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--sidebar-border);
+}
+
+.sidebar-header {
+    padding: 24px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--sidebar-border);
+}
+
+/* Clean logo container */
+.logo-container {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.home-icon-btn {
+    background: transparent;
+    border: 1px solid var(--accent-gold); /* Gold border instead of grey */
+    color: var(--accent-gold);           /* Gold text instead of grey */
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.home-icon-btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-sidebar);
+}
+
+.nav-menu {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 16px;
+}
+
+.menu-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--sidebar-label); /* Balanced grey label for clean hierarchy */
+    margin: 28px 0 12px 12px;
+    font-weight: 700;
+}
+
+.menu-label:first-of-type {
+    margin-top: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 14px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--sidebar-text-inactive); /* Legible off-white text */
+    text-align: left;
+    font-size: 0.85rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-bottom: 6px;
+    font-weight: 500;
+    transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.nav-item i {
+    width: 16px;
+    color: var(--accent-gold); /* Icons are gold to pop against the dark sidebar */
+    transition: color 0.1s ease;
+}
+
+.nav-item:hover {
+    background-color: var(--sidebar-hover);
+    color: #ffffff;
+}
+
+.nav-item:hover i {
+    color: #ffffff; /* Turns white on hover for a crisp state change */
+}
+
+.nav-item.active {
+    background-color: var(--accent-gold); /* Solid brand gold active card */
+    border: 1px solid var(--accent-gold);
+    color: var(--bg-sidebar);            /* High contrast dark text inside active item */
+    font-weight: 700;
+}
+
+.nav-item.active i {
+    color: var(--bg-sidebar);             /* Icons inside active item match dark text */
+}
+
+/* --- STREAM SELECTOR HEADER --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.content-header {
+    height: 70px;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.stream-selector {
+    display: flex;
+    gap: 12px;
+}
+
+.stream-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.stream-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.stream-btn.active {
+    background-color: var(--bg-sidebar);
+    color: #ffffff;
+    border-color: var(--bg-sidebar);
+}
+
+/* --- VIEWS --- */
+.content-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px;
+}
+
+.view-section {
+    display: none;
+}
+
+.view-section.active-view {
+    display: block;
+}
+
+/* --- CARDS & BLOCKS --- */
+.welcome-card {
+    background-color: var(--bg-sidebar);
+    color: #ffffff;
+    padding: 32px;
+    border-radius: var(--radius);
+    margin-bottom: 32px;
+    border-left: 4px solid var(--accent-gold);
+}
+
+.welcome-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.welcome-card p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 900px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+}
+
+@media (max-width: 1024px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+/* --- DUAL-TONE BLACK & GOLD HEADER BOX --- */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    background-color: var(--bg-sidebar); 
+    color: var(--accent-gold);          
+    padding: 10px 14px;
+    border-left: 3px solid var(--accent-gold); 
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-header i {
+    color: var(--accent-gold); 
+}
+
+/* --- CHAPTER TITLE SECTION --- */
+.chapter-header-card {
+    background-color: var(--bg-sidebar);
+    color: #ffffff;
+    padding: 32px;
+    border-radius: var(--radius);
+    margin-bottom: 32px;
+    border-left: 4px solid var(--accent-gold);
+}
+
+.chapter-number {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.chapter-header-card h3 {
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.chapter-desc-placeholder {
+    font-size: 0.85rem;
+    color: #8e8e8e;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* --- PLACEHOLDERS --- */
+.placeholder-box {
+    background-color: #ffffff;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.85rem;
+    text-align: center;
+}

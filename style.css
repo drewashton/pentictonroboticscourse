@@ -25,7 +25,7 @@ body {
     color: var(--text-dark);
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Kept for crisp layout management on desktop screens */
 }
 
 h1, h2, h3, h4, .nav-item, .stream-btn {
@@ -51,7 +51,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     top: 0;
     left: 0;
     z-index: 1000;
-    overflow-y: auto; /* Allows internal container scrolling if content overflows */
+    overflow-y: auto; 
 }
 
 .portal-card {
@@ -423,22 +423,29 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 @media (max-width: 768px) {
-    /* --- CRITICAL MOBILE FIX FOR PORTAL/LANDING PAGE --- */
+    /* --- SYSTEM GLOBAL RESPONSIVE REMEDIATION --- */
+    body {
+        height: auto;
+        overflow: auto; /* UNLOCKS VIEWPORT SCROLL ENGINE FOR SMARTPHONES */
+    }
+
+    /* --- PORTAL LANDING PAGE MOBILE STYLING --- */
     .portal-container {
-        padding: 32px 16px;
-        height: auto;          /* Overrides 100vh restriction */
-        min-height: 100vh;     /* Ensures background covers phone screen */
-        display: block;        /* Changes flex layouts to natural document flow block stack */
-        overflow-y: visible;   /* Defers scrolling execution directly to parent window container */
+        padding: 48px 16px;
+        height: auto;          
+        min-height: 100vh;     
+        position: relative; /* Switches from fixed positioning to natural block layout flow */
+        display: flex;
+        overflow-y: visible;   
     }
 
     .portal-card {
-        padding-top: 16px;
+        padding: 0;
     }
 
     .portal-logo {
-        width: 90px;           /* Scales down slightly on small phone screens so it always fits */
-        height: 90px;
+        width: 100px;           
+        height: 100px;
         margin-bottom: 24px;
     }
 
@@ -448,23 +455,22 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 
     .portal-subtitle {
         font-size: 0.95rem;
-        margin-bottom: 32px;
+        margin-bottom: 36px;
     }
 
-    /* Stacks stream selection options vertically on smartphones */
     .stream-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
 
     .portal-stream-card {
-        padding: 24px 16px;
+        padding: 28px 16px;
     }
 
-    /* Main Workspace App Shell Mobile Optimization */
+    /* --- APPLICATION APP WORKSPACE MOBILE OVERRIDES --- */
     .app-container {
         flex-direction: column;
-        overflow-y: auto;
+        overflow-y: visible;
         height: auto;
     }
 

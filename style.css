@@ -3,6 +3,7 @@
     --bg-main: #f9f9f9;                
     --bg-sidebar: #0a0a0a;             
     --sidebar-text-inactive: #e5e5e5;  
+    --sidebar-label: #777777;          
     --sidebar-hover: #141414;          
     --text-dark: #0a0a0a;              
     --text-muted: #555555;             
@@ -25,7 +26,7 @@ body {
     color: var(--text-dark);
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     height: 100vh;
-    overflow: hidden; /* Kept for crisp layout management on desktop screens */
+    overflow: hidden; /* Maintained for fixed desktop dashboard display panels */
 }
 
 h1, h2, h3, h4, .nav-item, .stream-btn {
@@ -133,13 +134,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     color: var(--accent-gold);
 }
 
-/* --- MAIN INTERFACE STRUCTURE --- */
-.app-container {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-}
-
+/* --- APP INTERFACE SIDEBAR --- */
 .sidebar {
     width: 270px;
     background-color: var(--bg-sidebar);
@@ -242,6 +237,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     color: var(--bg-sidebar);             
 }
 
+/* --- CONTAINER MAIN WORKSPACE --- */
 .main-content {
     flex: 1;
     display: flex;
@@ -308,7 +304,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     display: block;
 }
 
-/* --- CARDS & BLOCKS --- */
+/* --- CONTENT PANEL COPY STYLES --- */
 .welcome-card {
     background-color: var(--bg-sidebar);
     color: #ffffff;
@@ -412,7 +408,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 /* ==========================================================================
-   ⚡ MOBILE, PORTAL, & TABLET RESPONSIVE QUERIES
+   ⚡ MOBILE & TABLET STYLING CORE REFACTOR
    ========================================================================== */
 
 @media (max-width: 1024px) {
@@ -423,18 +419,18 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 @media (max-width: 768px) {
-    /* --- SYSTEM GLOBAL RESPONSIVE REMEDIATION --- */
+    /* Unlocking view engine boundaries on small viewports */
     body {
         height: auto;
-        overflow: auto; /* UNLOCKS VIEWPORT SCROLL ENGINE FOR SMARTPHONES */
+        overflow: auto; 
     }
 
-    /* --- PORTAL LANDING PAGE MOBILE STYLING --- */
+    /* Portal Landing view vertical normalization */
     .portal-container {
         padding: 48px 16px;
         height: auto;          
         min-height: 100vh;     
-        position: relative; /* Switches from fixed positioning to natural block layout flow */
+        position: relative; 
         display: flex;
         overflow-y: visible;   
     }
@@ -467,7 +463,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         padding: 28px 16px;
     }
 
-    /* --- APPLICATION APP WORKSPACE MOBILE OVERRIDES --- */
+    /* Core Dashboard workspace orientation shift */
     .app-container {
         flex-direction: column;
         overflow-y: visible;

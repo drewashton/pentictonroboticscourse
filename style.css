@@ -26,7 +26,7 @@ body {
     color: var(--text-dark);
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     height: 100vh;
-    overflow: hidden; /* Maintained for fixed desktop dashboard display panels */
+    overflow: hidden; /* Maintained for fixed desktop layout framework */
 }
 
 h1, h2, h3, h4, .nav-item, .stream-btn {
@@ -45,16 +45,16 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     background-color: var(--bg-sidebar);
     color: #ffffff;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* FIX: Starts content at the top so title/logo aren't pushed off-screen */
     justify-content: center;
-    padding: 40px 24px;
+    padding: 60px 24px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     overflow-y: auto; 
-    
-    /* Updated Background Image Asset */
+
+    /* Full Bleed Image Background Integration */
     background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('robotphoto.jpg');
     background-size: cover;
     background-position: center center;
@@ -65,6 +65,10 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     max-width: 900px;
     width: 100%;
     text-align: center;
+}
+
+.portal-hero {
+    margin-bottom: 40px;
 }
 
 .portal-logo {
@@ -90,26 +94,152 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.portal-subtitle {
-    font-size: 1.05rem;
-    color: #e5e5e5;
-    line-height: 1.6;
-    max-width: 750px;
-    margin: 0 auto 48px auto;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+.portal-tagline {
+    font-size: 1.1rem;
+    color: var(--accent-gold);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 500;
 }
 
+/* --- INFO HUB CONTAINER STYLES --- */
+.portal-info-hub {
+    max-width: 850px;
+    margin: 0 auto 40px auto;
+    text-align: left;
+}
+
+.info-block {
+    background: rgba(15, 15, 15, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 28px;
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.info-block h2, .portal-cta-header h2 {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-block h3 {
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-block p {
+    color: #e5e5e5;
+    line-height: 1.6;
+    font-size: 0.98rem;
+    margin-bottom: 16px;
+}
+.info-block p:last-child {
+    margin-bottom: 0;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* --- FAQ ACCORDION DISPLAY SYSTEM --- */
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 0;
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item details {
+    width: 100%;
+}
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Custom UI Arrow Button Formatting */
+.faq-arrow-btn {
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.faq-arrow-btn i {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+/* Spins the physical button indicator when expanded */
+.faq-item details[open] .faq-arrow-btn {
+    background: var(--accent-gold);
+    color: var(--bg-sidebar);
+}
+.faq-item details[open] .faq-arrow-btn i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding-top: 14px;
+    font-size: 0.95rem;
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.portal-cta-header {
+    text-align: center;
+    margin: 56px auto 32px auto;
+}
+.portal-cta-header p {
+    color: #cccccc;
+    font-size: 1.05rem;
+}
+
+/* --- GRID TRIGGER PLATFORMS --- */
 .stream-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 .portal-stream-card {
     background: rgba(15, 15, 15, 0.75); 
-    backdrop-filter: blur(4px);          
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid #222222;
+    backdrop-filter: blur(8px);          
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 32px 24px;
     border-radius: var(--radius);
     color: #ffffff;
@@ -441,11 +571,11 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         height: auto;          
         min-height: 100vh;     
         width: 100vw;
-        padding: 48px 16px;    
+        padding: 32px 16px;    
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start; 
+        justify-content: flex-start; /* FIX: Natural fluid stack alignment on mobile hardware */
         overflow-y: visible;   
         background-attachment: scroll; 
     }
@@ -465,9 +595,17 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         font-size: 1.8rem;
     }
 
-    .portal-subtitle {
+    .portal-tagline {
         font-size: 0.95rem;
-        margin-bottom: 36px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .info-block {
+        padding: 20px 16px;
     }
 
     .stream-grid {
@@ -481,6 +619,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         width: 100%;
     }
 
+    /* --- DASHBOARD MOBILE REFITTING --- */
     .app-container {
         flex-direction: column;
         overflow-y: visible;

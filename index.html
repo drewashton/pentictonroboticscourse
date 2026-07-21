@@ -14,7 +14,7 @@
     <meta property="og:description" content="Online portal housing lessons, assignments, resources, and learning materials for the Penticton Robotics Prep Course.">
     <meta property="og:type" content="website">
 
-    <!-- iMessage & Search Engine Favicon Mapping (Fixes transparency hue issues) -->
+    <!-- Favicon Mapping -->
     <link rel="icon" type="image/png" href="pr_logo2x.PNG">
     <link rel="apple-touch-icon" href="pr_logo2x.PNG">
     <meta name="apple-mobile-web-app-title" content="Penticton Robotics - Prep Course">
@@ -23,7 +23,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -35,6 +35,33 @@
 
     <!-- 1. EXTENDED LANDING / PORTAL SCREEN -->
     <div id="portal-screen" class="portal-container">
+        
+        <!-- SITE TOP HEADER & NAVIGATION -->
+        <header class="site-header">
+            <div class="header-inner">
+                <!-- Desktop Nav Links (Centered) -->
+                <nav class="desktop-nav">
+                    <a href="#overview">Overview</a>
+                    <a href="#cohorts">Cohorts & Streams</a>
+                    <a href="#faqs">FAQ</a>
+                    <a href="#streams" class="nav-cta-btn">Select Stream</a>
+                </nav>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button class="hamburger-toggle" id="hamburger-btn" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div class="mobile-menu" id="mobile-dropdown">
+                <a href="#overview" class="mobile-nav-link">Overview</a>
+                <a href="#cohorts" class="mobile-nav-link">Cohorts & Streams</a>
+                <a href="#faqs" class="mobile-nav-link">FAQ</a>
+                <a href="#streams" class="mobile-nav-link mobile-cta">Select Stream</a>
+            </div>
+        </header>
+
         <div class="portal-card">
             
             <!-- Hero Header Section -->
@@ -49,29 +76,29 @@
             <!-- Main Hub Content Block -->
             <main class="portal-info-hub">
                 
-                <section class="info-block alignment-text">
+                <section id="overview" class="info-block alignment-text">
                     <h2>Program Overview</h2>
                     <p>We're excited to introduce a new structure for the Penticton Robotics program.</p>
                     <p>Historically, many students have joined our team with prior experience in robotics, programming, CAD, or business. At the same time, we've welcomed students with no prior experience. While those students have gone on to accomplish great things, many spend significant time trying to catch up while struggling to keep pace with the demands of a fast-moving FRC season, which can be discouraging.</p>
                     <p>The goal of this new structure is to make robotics more accessible, provide a better learning experience, and ensure every student has a basic foundation before being thrown into the “deep end.” Instead of jumping straight into a less-structured environment, every student will begin in the Penticton Robotics Prep Course. This course will be the starting point for every member of the program and will provide a structured pathway onto the Competition Team. This pathway will be required before joining the Competition Team.</p>
                 </section>
 
-                <div class="info-grid">
+                <div id="cohorts" class="info-grid">
                     <section class="info-block">
-                        <h3><i class="fa-solid fa-users-rectangle"></i> The Two Cohorts</h3>
+                        <h2><i class="fa-solid fa-users-rectangle"></i> THE TWO COHORTS</h2>
                         <p>To support this new model, the Penticton Robotics program will now operate as two cohorts: the Prep Course and the Competition Team.</p>
                         <p>The Prep Course is where students complete the learning pathway and learn their foundational knowledge and skills. The Competition Team is where students apply and continue developing those skills in a less structured, more demanding environment. Each cohort will meet on different days while remaining part of the same Penticton Robotics program.</p>
                     </section>
 
                     <section class="info-block">
-                        <h3><i class="fa-solid fa-route"></i> The Streams</h3>
+                        <h2><i class="fa-solid fa-route"></i> THE STREAMS</h2>
                         <p>In the Prep Course, students can choose one of three streams: build, programming, or business. Each stream includes lessons, projects, assignments, and resources based on the work that takes place throughout an FRC season.</p>
                         <p>Students will develop the foundational knowledge and skills they'll use on the Competition Team while also building qualities that are essential on a less-structured, student-led team, including initiative, curiosity, reliability, teamwork, and a willingness to learn.</p>
                     </section>
                 </div>
 
-                <!-- Interactive Accordion FAQs with Downward Arrow Buttons -->
-                <section class="info-block portal-faqs">
+                <!-- Interactive Accordion FAQs -->
+                <section id="faqs" class="info-block portal-faqs">
                     <h2>Frequently Asked Questions</h2>
                     
                     <div class="faq-item">
@@ -112,14 +139,14 @@
                 </section>
 
                 <!-- Prompt Framework -->
-                <section class="portal-cta-header">
+                <section id="streams" class="portal-cta-header">
                     <h2>Select Your Learning Stream</h2>
                     <p>Select a stream below to explore chapters, assignments, and resources.</p>
                 </section>
 
             </main>
             
-            <!-- Interactive Buttons Shell -->
+            <!-- Interactive Stream Buttons Shell -->
             <div class="stream-grid">
                 <button class="portal-stream-card" data-select-stream="build">
                     <div class="stream-icon"><i class="fa-solid fa-hammer"></i></div>
@@ -139,6 +166,12 @@
             </div>
 
         </div>
+
+        <!-- SITE FOOTER -->
+        <footer class="site-footer">
+            <p>&copy; 2026 Penticton Robotics</p>
+        </footer>
+
     </div>
 
     <!-- 2. MAIN APP INTERFACE -->

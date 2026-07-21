@@ -19,6 +19,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -38,6 +39,98 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     font-family: 'Space Mono', monospace;
 }
 
+/* --- SITE TOP HEADER & NAVIGATION --- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1100;
+}
+
+.header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centered Navigation */
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+
+.desktop-nav a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.desktop-nav a:hover {
+    color: var(--accent-gold);
+}
+
+.desktop-nav .nav-cta-btn {
+    background: var(--accent-gold);
+    color: var(--bg-sidebar);
+    padding: 6px 16px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.desktop-nav .nav-cta-btn:hover {
+    background: #ffffff;
+    color: var(--bg-sidebar);
+}
+
+.hamburger-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(15, 15, 15, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 24px;
+    gap: 12px;
+    text-align: center;
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-nav-link.mobile-cta {
+    color: var(--accent-gold);
+    font-weight: 700;
+    border-bottom: none;
+}
+
 /* --- PORTAL LANDING PAGE --- */
 .portal-container {
     height: 100vh;
@@ -45,16 +138,17 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     background-color: var(--bg-sidebar);
     color: #ffffff;
     display: flex;
-    align-items: flex-start; /* Aligns content naturally at top to support full scrolling layout */
-    justify-content: center;
-    padding: 60px 24px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 110px 24px 0 24px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     overflow-y: auto; 
 
-    /* Full Bleed Image Background Integration */
+    /* Background Setup */
     background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('robotphoto.jpg');
     background-size: cover;
     background-position: center center;
@@ -62,19 +156,21 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 .portal-card {
-    max-width: 900px;
+    max-width: 850px;
     width: 100%;
+    margin: 0 auto;
     text-align: center;
 }
 
 .portal-hero {
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .portal-logo {
     width: 120px;
     height: 120px;
-    margin: 0 auto 32px auto;
+    margin: 0 auto 28px auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,17 +185,18 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 .portal-title {
     font-size: 2.5rem;
     letter-spacing: -0.5px;
-    color: var(--accent-gold); /* Brand Gold applied */
+    color: var(--accent-gold);
     margin-bottom: 16px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .portal-tagline {
     font-size: 1.1rem;
-    color: #ffffff; /* Crisp White applied */
-    max-width: 600px;
+    color: #ffffff;
+    max-width: 620px;
     margin: 0 auto;
     font-weight: 500;
+    line-height: 1.5;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -113,7 +210,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 .info-block {
     background: rgba(15, 15, 15, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 28px;
+    padding: 32px;
     border-radius: var(--radius);
     margin-bottom: 24px;
     backdrop-filter: blur(8px);
@@ -121,25 +218,23 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 .info-block h2, .portal-cta-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--accent-gold);
     margin-bottom: 16px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-.info-block h3 {
-    font-size: 1.2rem;
-    color: var(--accent-gold);
-    margin-bottom: 14px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+}
+
+.info-block h2 i {
+    font-size: 1.2rem;
 }
 
 .info-block p {
     color: #e5e5e5;
-    line-height: 1.6;
+    line-height: 1.65;
     font-size: 0.98rem;
     margin-bottom: 16px;
 }
@@ -182,7 +277,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     display: none;
 }
 
-/* Custom UI Arrow Button Formatting */
 .faq-arrow-btn {
     background: transparent;
     border: 1px solid var(--accent-gold);
@@ -202,7 +296,6 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     transition: transform 0.2s ease;
 }
 
-/* Rotates the button arrow element when expanded */
 .faq-item details[open] .faq-arrow-btn {
     background: var(--accent-gold);
     color: var(--bg-sidebar);
@@ -222,6 +315,9 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     text-align: center;
     margin: 56px auto 32px auto;
 }
+.portal-cta-header h2 {
+    justify-content: center;
+}
 .portal-cta-header p {
     color: #cccccc;
     font-size: 1.05rem;
@@ -233,7 +329,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     max-width: 850px;
-    margin: 0 auto;
+    margin: 0 auto 60px auto;
 }
 
 .portal-stream-card {
@@ -273,6 +369,24 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     font-size: 0.8rem;
     text-transform: uppercase;
     color: var(--accent-gold);
+}
+
+/* --- SITE FOOTER --- */
+.site-footer {
+    width: 100vw;
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px;
+    margin-top: auto;
+    text-align: center;
+}
+
+.site-footer p {
+    color: #aaaaaa;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
 /* --- APP INTERFACE SIDEBAR --- */
@@ -551,8 +665,8 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 /* ==========================================================================
-   ⚡ RESPONSIVE QUERIES & MOBILE UNFREEZERS
-   ========================================================================= */
+   ⚡ MOBILE OPTIMIZATION & UNFREEZERS
+   ========================================================================== */
 
 @media (max-width: 1024px) {
     .grid-layout {
@@ -567,12 +681,24 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         overflow: auto; 
     }
 
+    .header-inner {
+        justify-content: flex-end;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .hamburger-toggle {
+        display: block;
+    }
+
     .portal-container {
         position: relative;    
         height: auto;          
         min-height: 100vh;     
         width: 100vw;
-        padding: 32px 16px;    
+        padding: 80px 16px 0 16px;    
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -587,13 +713,13 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     }
 
     .portal-logo {
-        width: 100px;           
-        height: 100px;
-        margin-bottom: 24px;
+        width: 90px;           
+        height: 90px;
+        margin-bottom: 20px;
     }
 
     .portal-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .portal-tagline {
@@ -609,14 +735,19 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
         padding: 20px 16px;
     }
 
+    .info-block h2 {
+        font-size: 1.25rem;
+    }
+
     .stream-grid {
         grid-template-columns: 1fr;
         gap: 16px;
         width: 100%;
+        margin-bottom: 40px;
     }
 
     .portal-stream-card {
-        padding: 28px 16px;
+        padding: 24px 16px;
         width: 100%;
     }
 

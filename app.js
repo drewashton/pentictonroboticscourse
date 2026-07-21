@@ -37,23 +37,6 @@ const courseStreams = {
 let currentStreamKey = "business";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 0. Mobile Hamburger Navigation Toggle
-    const hamburgerBtn = document.getElementById("hamburger-btn");
-    const mobileDropdown = document.getElementById("mobile-dropdown");
-    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
-
-    if (hamburgerBtn && mobileDropdown) {
-        hamburgerBtn.addEventListener("click", () => {
-            mobileDropdown.classList.toggle("active");
-        });
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                mobileDropdown.classList.remove("active");
-            });
-        });
-    }
-
     // Top-level Navigation Screens
     const portalScreen = document.getElementById("portal-screen");
     const appInterface = document.getElementById("app-interface");

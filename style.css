@@ -93,19 +93,20 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 .portal-title {
     font-size: 2.5rem;
     letter-spacing: -0.5px;
-    color: var(--accent-gold);
+    color: var(--accent-gold) !important;
     margin-bottom: 16px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .portal-tagline {
-    font-size: 1.1rem;
-    color: #ffffff;
-    max-width: 620px;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #e5e5e5 !important;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    font-weight: 400;
+    max-width: 650px;
     margin: 0 auto;
-    font-weight: 500;
-    line-height: 1.5;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: none;
 }
 
 /* --- INFO HUB CONTAINER STYLES --- */
@@ -245,7 +246,7 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     backdrop-filter: blur(8px);          
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 32px 24px;
+    padding: 36px 24px;
     border-radius: var(--radius);
     color: #ffffff;
     cursor: pointer;
@@ -263,9 +264,13 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
 }
 
 .stream-icon {
-    font-size: 2rem;
+    font-size: 2.75rem;
     color: var(--accent-gold);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.stream-icon i {
+    font-size: 2.75rem;
 }
 
 .portal-stream-card h3 {
@@ -612,8 +617,8 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     }
 
     .portal-tagline {
-        font-size: 0.92rem;
-        line-height: 1.45;
+        font-size: 0.9rem;
+        line-height: 1.55;
         padding: 0 8px;
     }
 
@@ -674,8 +679,12 @@ h1, h2, h3, h4, .nav-item, .stream-btn {
     }
 
     .stream-icon {
-        font-size: 1.6rem;
-        margin-bottom: 10px;
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+
+    .stream-icon i {
+        font-size: 2.2rem;
     }
 
     .portal-stream-card h3 {
